@@ -24,11 +24,12 @@ func main() {
 	go func() {
 		<-time.After(models.ShopclosingTime)
 		shop.IsShopOpen = false
+		close(shop.WaitingRoom)
 		fmt.Println("The shop is closed for the day")
 	}()
 
-	fmt.Println("wait ended")
-	for i := range shop.WaitingRoom {
+	time.Sleep(30 * time.Second)
+	/*for i := range shop.WaitingRoom {
 		fmt.Println("i -- ", i)
-	}
+	}*/
 }

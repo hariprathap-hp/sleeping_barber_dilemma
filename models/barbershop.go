@@ -6,10 +6,10 @@ import (
 )
 
 const (
-	NumberofBarbers         = 3
+	NumberofBarbers         = 2
 	NumberofChairs          = 6
-	ShopclosingTime         = 8 * time.Second //seconds
-	CustomerArrivalInterval = 2               // seconds
+	ShopclosingTime         = 20 * time.Second //seconds
+	CustomerArrivalInterval = 2                // seconds
 )
 
 type Shop struct {
@@ -37,7 +37,7 @@ func (shop *Shop) HairCut(barber, customer int) {
 func (shop *Shop) Barber(isSleeping bool, barberId int) {
 	for {
 		if len(shop.WaitingRoom) == 0 {
-			fmt.Printf("No customer is in the waiting room and the barber %d goes to sleep", barberId)
+			fmt.Printf("No customer is in the waiting room and the barber %d goes to sleep\n", barberId)
 			isSleeping = true
 		}
 		customer := <-shop.WaitingRoom
