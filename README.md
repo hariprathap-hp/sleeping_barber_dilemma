@@ -22,3 +22,6 @@ goes to sleep until a new client arrives.
   * clone the repository **git clone https://github.com/hariprathap-hp/sleeping_barber_dilemma.git**
   * run **make run** in your terminal
 
+**Sample Output**
+  * please check the file "sample_output.txt" to see the sample output
+
