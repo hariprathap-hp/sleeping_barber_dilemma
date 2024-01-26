@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/hariprathap-hp/sleeping_barber_dilemma/models"
@@ -23,13 +22,9 @@ func main() {
 
 	//close the shop after certain duration
 	go func() {
-		<-time.After(models.ShopclosingTime)
+		<-time.After(models.ShopOpenTime)
+		shop.IsOpen <- false
 		shop.IsShopOpen = false
-		fmt.Println("The shop is closed for the day")
 	}()
-
-	time.Sleep(30 * time.Second)
-	/*for i := range shop.WaitingRoom {
-		fmt.Println("i -- ", i)
-	}*/
+	time.Sleep(45 * time.Second)
 }
