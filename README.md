@@ -18,6 +18,7 @@ goes to sleep until a new client arrives.
   
   • after the shop is closed and there are no clients left in the waiting area, the barber goes home
 
+**How to run the code**
 **Step 1**
   * clone the repository **git clone https://github.com/hariprathap-hp/sleeping_barber_dilemma.git**
   * run **make run** in your terminal
