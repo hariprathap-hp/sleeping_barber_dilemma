@@ -1,7 +1,11 @@
 # sleeping_barber_dilemma
 **Problem description:**
 This is a simple demonstration of how to solve the Sleeping Barber dilemma, a classic computer science problem which illustrates the complexities that arise when there are multiple operating system processes. Here, we have a finite number of barbers, a finite number of seats in a waiting room, a fixed length of time the barbershop is open, and clients arriving at (roughly) regular intervals. When a barber has nothing to do, he or she checks the waiting room for new clients, and if one or more is there, a haircut takes place. Otherwise, the barber
-goes to sleep until a new client arrives. So the rules are as follows:
+goes to sleep until a new client arrives. 
+
+So the rules are as follows:
+
+
   • if there are no customers, the barber falls asleep in the chair
   • a customer must wake the barber if he is asleep
   • if a customer arrives while the barber is working, the customer leaves if all chairs are occupied and sits in an empty chair if it's available
