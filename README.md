@@ -7,8 +7,13 @@ So the rules are as follows:
 
 
   • if there are no customers, the barber falls asleep in the chair
+  
   • a customer must wake the barber if he is asleep
+  
   • if a customer arrives while the barber is working, the customer leaves if all chairs are occupied and sits in an empty chair if it's available
+  
   • when the barber finishes a haircut, he inspects the waiting room to see if there are any waiting customers and falls asleep if there are none
+  
   • shop can stop accepting new clients at closing time, but the barbers cannot leave until the waiting room is empty
+  
   • after the shop is closed and there are no clients left in the waiting area, the barber goes home
