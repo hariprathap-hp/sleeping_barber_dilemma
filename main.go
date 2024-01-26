@@ -9,10 +9,6 @@ import (
 
 func main() {
 	shop := models.NewBarberShop()
-	//add clients at regular intervals
-	go func() {
-		shop.ClientEntry()
-	}()
 
 	//Employ the barbers until the shop is closed
 	for i := 1; i <= shop.BarbersEmployed; i++ {
@@ -20,11 +16,15 @@ func main() {
 		go shop.Barber(isSleeping, i)
 	}
 
+	//add clients at regular intervals
+	go func() {
+		shop.ClientEntry()
+	}()
+
 	//close the shop after certain duration
 	go func() {
 		<-time.After(models.ShopclosingTime)
 		shop.IsShopOpen = false
-		close(shop.WaitingRoom)
 		fmt.Println("The shop is closed for the day")
 	}()
 
