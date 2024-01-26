@@ -18,7 +18,6 @@ const (
 type Shop struct {
 	BarbersEmployed int
 	WaitingRoom     chan int
-	BarberChan      chan int
 	IsShopOpen      bool
 	IsOpen          chan bool
 }
@@ -27,10 +26,14 @@ func NewBarberShop() *Shop {
 	return &Shop{
 		BarbersEmployed: NumberofBarbers,
 		WaitingRoom:     make(chan int, WaitingChairs),
-		BarberChan:      make(chan int, NumberofBarbers),
 		IsShopOpen:      true,
 		IsOpen:          make(chan bool, 1),
 	}
+}
+
+func (shop *Shop) CloseChannels() {
+	utils.Info("Closing all the open channels")
+	close(shop.WaitingRoom)
 }
 
 func (shop *Shop) HairCut(barber, customer int) {
@@ -60,18 +63,20 @@ func (shop *Shop) Barber(isSleeping bool, barberId int) {
 				customer := <-shop.WaitingRoom
 				shop.HairCut(barberId, customer)
 			}
+			//closed the waitingRoom channel once all the customers are served
 			utils.Info(fmt.Sprintf("The shop is closed, and no one is in waiting room, so Barber%d can leave the shop", barberId))
 			return
 		}
 	}
 }
 
-func (shop *Shop) ClientEntry() {
+func (shop *Shop) Customers() {
 	clientID := 1
 	for {
 		select {
 		case <-shop.IsOpen:
 			utils.Info("The shop is closed, and new clients are not accepted")
+			close(shop.IsOpen)
 			return
 		case <-time.After(CustomerArrivalInterval * time.Second):
 			if len(shop.WaitingRoom) < cap(shop.WaitingRoom) {

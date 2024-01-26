@@ -1,0 +1,120 @@
+INPUT:
+	NumberofBarbers         = 2                //Number of barbers in the salon
+	WaitingChairs           = 4                //Number of chairs in the waiting room
+	ShopOpenTime            = 20 * time.Second //The shop closes in 20 seconds from now
+	CustomerArrivalInterval = 1                //The customer arrival interval is set as static. Can be changed to dynamic
+	HairCutTime             = 5 * time.Second
+
+
+OUTPUT: make run
+go run main.go
+2024/01/26 12:26:54 [INFO] No customer is in the waiting room and the Barber1 goes to sleep
+
+2024/01/26 12:26:54 [INFO] No customer is in the waiting room and the Barber2 goes to sleep
+
+2024/01/26 12:26:55 [INFO] Client1 arrived. 0 clients in the waiting room.
+
+0 4
+2024/01/26 12:26:55 [INFO] Client1 wakes Barber1 up 
+
+2024/01/26 12:26:55 [INFO] Barber1 is cutting Client1's hair 
+
+2024/01/26 12:26:56 [INFO] Client2 arrived. 0 clients in the waiting room.
+
+0 4
+2024/01/26 12:26:56 [INFO] Client2 wakes Barber2 up 
+
+2024/01/26 12:26:56 [INFO] Barber2 is cutting Client2's hair 
+
+2024/01/26 12:26:57 [INFO] Client3 arrived. 1 clients in the waiting room.
+
+1 4
+2024/01/26 12:26:58 [INFO] Client4 arrived. 2 clients in the waiting room.
+
+2 4
+2024/01/26 12:26:59 [INFO] Client5 arrived. 3 clients in the waiting room.
+
+3 4
+2024/01/26 12:27:00 [INFO] Barber1 is finished cutting Client1's hair. 
+
+2024/01/26 12:27:00 [INFO] Barber1 is cutting Client3's hair 
+
+2024/01/26 12:27:00 [INFO] Client6 arrived. 3 clients in the waiting room.
+
+3 4
+2024/01/26 12:27:01 [INFO] Barber2 is finished cutting Client2's hair. 
+
+2024/01/26 12:27:01 [INFO] Barber2 is cutting Client4's hair 
+
+2024/01/26 12:27:01 [INFO] Client7 arrived. 3 clients in the waiting room.
+
+3 4
+2024/01/26 12:27:02 [INFO] Client8 arrived. 4 clients in the waiting room.
+
+4 4
+2024/01/26 12:27:03 [INFO] Client9 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:04 [INFO] Client10 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:05 [INFO] Barber1 is finished cutting Client3's hair. 
+
+2024/01/26 12:27:05 [INFO] Barber1 is cutting Client5's hair 
+
+2024/01/26 12:27:05 [INFO] Client11 arrived. 4 clients in the waiting room.
+
+4 4
+2024/01/26 12:27:06 [INFO] Barber2 is finished cutting Client4's hair. 
+
+2024/01/26 12:27:06 [INFO] Barber2 is cutting Client6's hair 
+
+2024/01/26 12:27:06 [INFO] Client12 arrived. 4 clients in the waiting room.
+
+4 4
+2024/01/26 12:27:07 [INFO] Client13 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:08 [INFO] Client14 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:09 [INFO] Client15 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:10 [INFO] Barber1 is finished cutting Client5's hair. 
+
+2024/01/26 12:27:10 [INFO] Barber1 is cutting Client7's hair 
+
+2024/01/26 12:27:10 [INFO] Client16 arrived. 4 clients in the waiting room.
+
+4 4
+2024/01/26 12:27:11 [INFO] Barber2 is finished cutting Client6's hair. 
+
+2024/01/26 12:27:11 [INFO] Barber2 is cutting Client8's hair 
+
+2024/01/26 12:27:11 [INFO] Client17 arrived. 4 clients in the waiting room.
+
+4 4
+2024/01/26 12:27:12 [INFO] Client18 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:13 [INFO] Client19 arrives, but the waiting room is full. Client leaves.
+
+2024/01/26 12:27:14 [INFO] The shop is closed, and new clients are not accepted
+2024/01/26 12:27:15 [INFO] Barber1 is finished cutting Client7's hair. 
+
+2024/01/26 12:27:15 [INFO] Barber1 is cutting Client11's hair 
+
+2024/01/26 12:27:16 [INFO] Barber2 is finished cutting Client8's hair. 
+
+2024/01/26 12:27:16 [INFO] Barber2 is cutting Client12's hair 
+
+2024/01/26 12:27:20 [INFO] Barber1 is finished cutting Client11's hair. 
+
+2024/01/26 12:27:20 [INFO] Barber1 is cutting Client16's hair 
+
+2024/01/26 12:27:21 [INFO] Barber2 is finished cutting Client12's hair. 
+
+2024/01/26 12:27:21 [INFO] Barber2 is cutting Client17's hair 
+
+2024/01/26 12:27:25 [INFO] Barber1 is finished cutting Client16's hair. 
+
+2024/01/26 12:27:25 [INFO] The shop is closed, and no one is in waiting room, so Barber1 can leave the shop
+2024/01/26 12:27:26 [INFO] Barber2 is finished cutting Client17's hair. 
+
+2024/01/26 12:27:26 [INFO] The shop is closed, and no one is in waiting room, so Barber2 can leave the shop
+2024/01/26 12:27:26 [INFO] Closing all the open channels
