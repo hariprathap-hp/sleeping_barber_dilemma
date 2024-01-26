@@ -19,8 +19,13 @@ goes to sleep until a new client arrives.
   • after the shop is closed and there are no clients left in the waiting area, the barber goes home
 
 **How to run the code**
+**Step 1**
   * clone the repository **git clone https://github.com/hariprathap-hp/sleeping_barber_dilemma.git**
   * run **make run** in your terminal
+
+**Step 2**
+  * Pull the images cretaed from dockerHub using the command **docker pull deadpoet/hariprathap-sleeping-barber:v1**
+  * Then run the command **docker run docker run deadpoet/hariprathap-sleeping-barber:v1**
 
 **Sample Output**
   * please check the file "sample_output.txt" to see the sample output
