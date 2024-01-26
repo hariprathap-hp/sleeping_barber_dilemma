@@ -25,7 +25,7 @@ func main() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		shop.ClientEntry()
+		shop.Customers()
 	}()
 
 	//close the shop after certain duration
@@ -36,5 +36,7 @@ func main() {
 		shop.IsOpen <- false
 		shop.IsShopOpen = false
 	}()
+
 	wg.Wait()
+	shop.CloseChannels()
 }
