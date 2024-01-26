@@ -18,7 +18,6 @@ const (
 type Shop struct {
 	BarbersEmployed int
 	WaitingRoom     chan int
-	BarberChan      chan int
 	IsShopOpen      bool
 	IsOpen          chan bool
 }
@@ -27,7 +26,6 @@ func NewBarberShop() *Shop {
 	return &Shop{
 		BarbersEmployed: NumberofBarbers,
 		WaitingRoom:     make(chan int, WaitingChairs),
-		BarberChan:      make(chan int, NumberofBarbers),
 		IsShopOpen:      true,
 		IsOpen:          make(chan bool, 1),
 	}
@@ -35,7 +33,6 @@ func NewBarberShop() *Shop {
 
 func (shop *Shop) CloseChannels() {
 	utils.Info("Closing all the open channels")
-	close(shop.BarberChan)
 	close(shop.WaitingRoom)
 }
 
